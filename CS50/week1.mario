@@ -1,0 +1,37 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int positive(string prompt);
+
+int main(void)
+{
+    int x = positive("Height: ");
+    
+    for (int i = 0; i < x; i++)
+        {
+            for (int k = x; k-1 > i ; k--)
+               {
+                    printf(" ");
+               }
+        
+            for (int j = 0; j-1 < i; j++)
+               {
+                    printf("#");
+               }
+            printf("\n");
+        }
+}
+
+
+// Prompt user for positive integer
+int positive(string prompt)
+{
+    int n;
+    do
+    {
+        n = get_int("%s", prompt);
+    }
+    while (n < 1 || n >8);
+    return n;
+   
+}
