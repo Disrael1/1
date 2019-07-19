@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <cs50.h> 
+#include <math.h>
+
+float positive_float(string prompt);
+
+int main (void)
+{
+    float x = positive_float("Change owed: ");
+    int coins = round(x * 100);
+    
+    int a = 25;
+    int b = 10;
+    int c = 5;
+    int d = 1;
+    
+    int sum1 = coins/a; int rest1 = coins%a; 
+    int sum2 = rest1/b; int rest2 = rest1%b;
+    int sum3 = rest2/c; int rest3 = rest2%c;
+    int sum4 = rest3/d;
+    
+    int Sum = sum1+sum2+sum3+sum4;
+    
+    printf("%i\n", Sum);
+}
+
+float positive_float(string prompt)
+{
+    float n;
+    do
+    {
+        n = get_float("%s", prompt);
+    }
+    while (n < 0);
+    return n;
+}
